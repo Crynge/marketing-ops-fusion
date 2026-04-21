@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  # Main Application
+  app:
+    build: .
+    container_name: marketing-ops-app
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/marketing_ops
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: marketing-ops-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: marketing_ops
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # Redis Cache & Message Queue
+  redis:
+    image: redis:7-alpine
+    container_name: marketing-ops-redis
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+  # Worker for Background Jobs
+  worker:
+    build: .
+    container_name: marketing-ops-worker
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/marketing_ops
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./src:/app/src
+      - ./config:/app/config
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    command: python -m src.workers.main
+
+  # Dashboard (Streamlit)
+  dashboard:
+    build: .
+    container_name: marketing-ops-dashboard
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/marketing_ops
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./dashboard:/app/dashboard
+    ports:
+      - "8501:8501"
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    command: streamlit run dashboard/app.py --server.port 8501 --server.address 0.0.0.0
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  default:
+    name: marketing-ops-network
