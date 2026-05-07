@@ -1,182 +1,62 @@
-# Marketing Operations Fusion (M-Ops Fusion)
+# Marketing Ops Fusion
 
-## 🚀 Autonomous Marketing Intelligence Platform
+<!-- portfolio-seo:start -->
+![Stars](https://img.shields.io/github/stars/Crynge/marketing-ops-fusion?style=flat-square) ![License](https://img.shields.io/github/license/Crynge/marketing-ops-fusion?style=flat-square) ![Status](https://img.shields.io/badge/status-active-blue?style=flat-square)
 
-**Marketing Operations Fusion** is a hyper-advanced, event-driven marketing automation system that unifies paid media, SEO, CRM, and inventory data into a single autonomous decision engine. It uses advanced algorithms like Shapley Value attribution, predictive inventory forecasting, and creative genome analysis to optimize marketing performance in real-time.
+![Social Preview](docs/social-preview.png)
 
-### Key Features
+> Autonomous marketing intelligence scaffold for attribution, inventory protection, creative diagnostics, and operator-grade decision support.
 
-- **Shapley Value Attribution**: Mathematically distributes credit across channels instead of relying on flawed "last-click" models
-- **Predictive Inventory Guard**: Halts ad spend before stockouts occur based on sales velocity forecasts
-- **Creative Genome Analysis**: Analyzes visual elements of top-performing ads to generate data-driven creative briefs
-- **Self-Healing Workflows**: Automatically detects API rate limits or data anomalies and switches to backup data sources
-- **40+ Enterprise Connectors**: Pre-built integrations for Meta, Google, TikTok, Shopify, Salesforce, HubSpot, GA4, and more
-- **Multi-Agent Architecture**: Specialized autonomous agents for budget optimization, creative analysis, SEO sync, and risk management
+**GitHub Search Keywords:** marketing intelligence platform, shapley attribution, creative genome analysis, predictive inventory guard, revops ai, marketing ops automation
 
-## 📁 Repository Structure
+<!-- portfolio-seo:end -->
 
-```
-marketing-ops-fusion/
-├── src/
-│   ├── core/               # Event bus, state management, vector store
-│   ├── agents/             # Autonomous specialists (Budget, Creative, SEO, Risk)
-│   ├── connectors/         # 40+ Enterprise APIs
-│   ├── models/             # Pydantic V2 strict schemas
-│   └── utils/              # Cryptographic logging, retry logic, security
-├── config/
-│   ├── strategies/         # YAML-based decision trees
-│   ├── thresholds/         # Dynamic alerting and action limits
-│   └── compliance/         # GDPR/CCPA rule sets
-├── tests/                  # Comprehensive unit & integration tests
-├── notebooks/              # Data science models
-├── docs/                   # Technical documentation
-└── docker-compose.yml      # One-command deployment
-```
+<!-- portfolio-links:start -->
+<div align="center">
 
-## 🚀 Quick Start
+[Documentation](docs) &middot; [Architecture](docs/architecture.md) &middot; [Authors](AUTHORS.md) &middot; [Contributing](CONTRIBUTING.md) &middot; [Security](SECURITY.md) &middot; [Workflows](.github/workflows)
 
-### Prerequisites
-- Docker & Docker Compose
-- Python 3.10+ (for local development)
-- API credentials for your marketing platforms
+</div>
+<!-- portfolio-links:end -->
 
-### Installation
+An autonomous marketing intelligence scaffold for teams that need one operating layer across **attribution**, **inventory risk**, **creative performance**, and **cross-channel decision support**.
 
-1. **Clone the repository**
+## Why This Repo Exists
+
+Modern marketing teams often have the data, but not the operating system. Spend is split across platforms, attribution remains contested, inventory surprises kill profitable campaigns, and creative learnings rarely feed back into planning fast enough. Marketing Ops Fusion is shaped as a technical foundation for solving that class of problem.
+
+## Core Concepts
+
+- **Shapley attribution** for fairer channel credit allocation
+- **Predictive inventory guard** to reduce stockout-driven wasted spend
+- **Creative genome analysis** for repeatable learning from winning assets
+- **Self-healing connector logic** for rate limits, retries, and degraded vendors
+- **Agent-specialist architecture** across growth, creative, SEO, and risk
+
+## Current Repository Status
+
+This repository is a strong technical scaffold with configuration, connectors, docs, tests, and Python package structure in place. It should be treated as an advanced foundation rather than a fully production-complete platform.
+
+## Repository Layout
+
+- `src/core/` - event bus and state-management primitives
+- `src/agents/` - specialist agent modules
+- `src/connectors/` - external marketing system integrations
+- `src/models/` - data and contract layers
+- `config/` - strategies, thresholds, and compliance rules
+- `docs/` - technical documentation
+- `tests/` - smoke and regression coverage
+
+## Quick Start
+
 ```bash
-git clone https://github.com/Crynge/marketing-ops-fusion.git
-cd marketing-ops-fusion
+python -m pip install -r requirements.txt
+python -m compileall src tests
 ```
 
-2. **Configure environment variables**
-```bash
-cp .env.example .env
-# Edit .env with your API keys
-```
+## Recommended Next Expansion
 
-3. **Start the platform**
-```bash
-docker-compose up -d
-```
-
-4. **Access the dashboard**
-Open http://localhost:8000 in your browser
-
-## 🧠 Advanced Capabilities
-
-### 1. Shapley Value Attribution
-Unlike traditional attribution models that give all credit to the last touchpoint, our implementation uses cooperative game theory to fairly distribute conversion credit across all touchpoints in the customer journey.
-
-### 2. Predictive Inventory Guard
-Integrates with your inventory management system to:
-- Forecast stock depletion based on current sales velocity
-- Automatically reduce ad spend on products nearing stockout
-- Prevent wasted ad spend and customer disappointment
-
-### 3. Creative Genome Analysis
-Uses computer vision and ML to:
-- Identify visual patterns in top-performing creatives
-- Generate data-driven briefs for new creative production
-- A/B test creative elements systematically
-
-### 4. Self-Healing Workflows
-Monitors system health and automatically:
-- Detects API rate limits and implements exponential backoff
-- Switches to backup data sources when primary fails
-- Alerts team only when human intervention is required
-
-## 🔌 Supported Integrations
-
-### Advertising Platforms
-- Meta Ads (Facebook/Instagram)
-- Google Ads (Search, Display, YouTube)
-- TikTok Ads
-- LinkedIn Ads
-- Amazon Advertising
-- Pinterest Ads
-- Snapchat Ads
-
-### Analytics & Data
-- Google Analytics 4
-- Adobe Analytics
-- Mixpanel
-- Amplitude
-- Segment
-
-### E-commerce & CMS
-- Shopify
-- WooCommerce
-- Magento
-- BigCommerce
-- WordPress
-- Contentful
-
-### CRM & Marketing Automation
-- Salesforce
-- HubSpot
-- Marketo
-- Pardot
-- Klaviyo
-- Mailchimp
-
-### Business Intelligence
-- Tableau
-- Power BI
-- Looker
-- Metabase
-
-## 📊 Expected Impact
-
-| Metric | Before | After |
-|--------|--------|-------|
-| Budget Allocation Efficiency | 65-75% | 90-95% |
-| Stockout Prevention | Reactive | Proactive (95% accuracy) |
-| Creative Production ROI | Low | 3-5x improvement |
-| System Downtime | Hours | Minutes (self-healing) |
-| Manual Optimization Time | 20+ hrs/week | <2 hrs/week |
-
-## 🔒 Security & Compliance
-
-- **GDPR/CCPA Compliant**: Built-in privacy controls and data handling
-- **Encrypted Secrets**: All API keys stored securely using environment variables
-- **Audit Logging**: Complete cryptographic audit trail of all decisions
-- **Role-Based Access**: Granular permissions for team members
-- **SOC 2 Ready**: Designed to meet enterprise security standards
-
-## 🧪 Testing
-
-The repository includes comprehensive tests:
-- 28+ unit tests covering all core modules
-- Integration tests for major platform connectors
-- End-to-end workflow tests
-- Performance benchmarks
-
-Run tests with:
-```bash
-docker-compose run --rm app pytest
-```
-
-## 📖 Documentation
-
-Detailed documentation is available in the `docs/` directory:
-- [Architecture Overview](docs/architecture.md)
-- [Installation Guide](docs/installation.md)
-- [Configuration Reference](docs/configuration.md)
-- [API Documentation](docs/api.md)
-- [Troubleshooting Guide](docs/troubleshooting.md)
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🆘 Support
-
-For issues, questions, or feature requests, please open an issue on GitHub or contact our support team.
-
----
-
-**Built for enterprise marketing teams who demand precision, speed, and intelligence in their operations.**
+- flesh out connector implementations
+- add import/export contracts for real marketing platforms
+- add scenario datasets and benchmark fixtures
+- expand test coverage around attribution and inventory logic
